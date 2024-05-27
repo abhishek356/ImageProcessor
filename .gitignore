@@ -8,4 +8,4 @@ src/uploads/
 src/ProcessedPhoto/
 node_modules
 
-node_modules/node/bin/node
+node_modules/node/.bin/node
