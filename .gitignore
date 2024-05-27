@@ -7,3 +7,5 @@ src/uploads/
 #Ignore src/ProcessedPhoto folder
 src/ProcessedPhoto/
 node_modules
+
+node_modules/node/bin/node
