@@ -1,9 +1,9 @@
 #Ignore  node_modules folder
-node_modules/
+node_modules
 
 #Ignore src/uploads folder
 src/uploads/
 
 #Ignore src/ProcessedPhoto folder
 src/ProcessedPhoto/
-node_modules/
+node_modules
