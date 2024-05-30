@@ -4,7 +4,10 @@ let express  =require('express')
 let multer = require ('multer')
 let morgan =  require('morgan')
 let app = express();
+<<<<<<< HEAD
 let fs = require('fs')
+=======
+>>>>>>> origin/master
 import {processImage} from './processFile'
 
 //app.use(express.static(__dirname, 'public'));
