@@ -44,7 +44,7 @@ function  readFileOperation(): boolean {
 }
 
 
-export let processImage = ():boolean=>{
+export let processImage = async ():Promise<boolean>=>{
 
   return  fileCompressed =  readFileOperation();
 

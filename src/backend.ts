@@ -4,6 +4,7 @@ let express  =require('express')
 let multer = require ('multer')
 let morgan =  require('morgan')
 let app = express();
+let fs = require('fs')
 import {processImage} from './processFile'
 
 //app.use(express.static(__dirname, 'public'));
@@ -29,27 +30,40 @@ filename: function (req, file, callback) {
 const upload = multer({storage:storage})
 
 
-app.post('/',upload.single('file'),(req,res)=>{
+app.post('/',upload.single('file'),async (req,res)=>{
 
     console.log(req.body)
      
-    let output = processImage();
+    let output = await processImage();
     console.log(`the final outcome`,output)
 
-    if(!output)
+    if(output)
         {
           return  res.json({message : 'failure'});
         }
 
         else{
-            return res.status(200).send({message: 'success'})
+            fs.readdir('ProcessedPhoto',(err:Error,files:File[])=>{
+                if(err)
+                    {
+                        return res.json({message:'Error ocurred while compressing file'})
+                    }
+
+                   
+                            res.sendFile(path.resolve(__dirname, 'ProcessedPhoto', files[0]));
+
+                      
+              
+
+                })
+        //    return res.status(200).send({message: 'success'})
         }
 
-    console.log(`Trying to pring the incoming image in the body`,req.body)
+    // console.log(`Trying to pring the incoming image in the body`,req.body)
     
-    console.log(`this is the home url`)
+    // console.log(`this is the home url`)
 
-    res.json({message:"this is the main body"});
+    // res.json({message:"this is the main body"});
 
 
 })
