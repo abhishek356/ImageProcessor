@@ -1,5 +1,4 @@
 "use strict";
-<<<<<<< HEAD
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,8 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-=======
->>>>>>> origin/master
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.processImage = void 0;
 var sharp = require('sharp');
@@ -64,17 +61,11 @@ function readFileOperation() {
     }
     return output;
 }
-<<<<<<< HEAD
 var processImage = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         return [2 /*return*/, fileCompressed = readFileOperation()];
     });
 }); };
-=======
-var processImage = function () {
-    return fileCompressed = readFileOperation();
-};
->>>>>>> origin/master
 exports.processImage = processImage;
 var useSharp = function () {
     var result = false;

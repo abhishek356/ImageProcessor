@@ -4,10 +4,7 @@ let express  =require('express')
 let multer = require ('multer')
 let morgan =  require('morgan')
 let app = express();
-<<<<<<< HEAD
 let fs = require('fs')
-=======
->>>>>>> origin/master
 import {processImage} from './processFile'
 
 //app.use(express.static(__dirname, 'public'));
@@ -15,6 +12,8 @@ import {processImage} from './processFile'
 app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
+
+let format:string=''
 
 //app.use(express.static(__dirname, 'public'));
 
@@ -27,6 +26,8 @@ let storage  = multer.diskStorage({
 },
 filename: function (req, file, callback) {
     callback(null, Date.now()+ path.extname(file.originalname));
+
+    format  = file.originalname.toLowerCase().endsWith('.png')?'png':'jpeg'
 
 }})
 
@@ -51,7 +52,8 @@ app.post('/',upload.single('file'),async (req,res)=>{
                     {
                         return res.json({message:'Error ocurred while compressing file'})
                     }
-
+                            
+                            res.setHeader('Content-Type',`image/${format}`)
                    
                             res.sendFile(path.resolve(__dirname, 'ProcessedPhoto', files[0]));
 
